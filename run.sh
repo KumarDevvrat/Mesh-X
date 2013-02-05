@@ -14,6 +14,7 @@ fi
 
 if [ ! -f "ext/orders.csv" ]; then
     echo "ERROR: could not find the orders file in orders.csv directory"
+    exit 1
 fi
 
 make
