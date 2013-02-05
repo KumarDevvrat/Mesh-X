@@ -1,0 +1,6 @@
+ext/*
+bin/*
+src/*.swp
+.ropeproject
+.exrc
+tags

@@ -1,0 +1,25 @@
+Algorithmic Trading problem from Mesh Capital
+
+Mesh-X 
+-----------------------------------------------------------------
+http://meshcapital.com/matching-engine-problem.pdf
+
+Compile and Run
+-----------------------------------------------------------------
+ext/ should contain orders.csv. It can be downloaded from 
+http://meshcapital.com/orders.csv.gz and then should be extracted
+
+To run type the following into the terminal
+make
+./bin/mesh-x
+ 
+Issues
+-----------------------------------------------------------------
+Currently, total time for the program to run is close to 30-40 sec
+in first one or two run. After that it is close to 7 sec.
+
+user time is nearly constant in first run or any other run however
+system time is quite large in the first run which increases the 
+total time thereafter. I am not really sure why that is happening.
+It might be MMU is taking a lot of time in the first cold start
+due to heavy malloc usage in the program
