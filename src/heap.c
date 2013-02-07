@@ -3,7 +3,7 @@
 #include "heap.h"
 
 /* 
- * Create a heap. INIT_HEAP_SIZE can be choosen to any number Since
+ * Create a heap. INIT_HEAP_SIZE can be chosen to any number since
  * the memory allocation has doubling growth strategy
  */
 heap_t *init_heap()
@@ -38,7 +38,7 @@ void shrink(heap_t *h)
 }
 
 /*
- * Insert an element into the heap. Taken O(log N)
+ * Insert an element into the heap. Takes O(log N)
  */
 void insert(heap_t *h, Order **order)
 {
@@ -70,7 +70,7 @@ Order **extract_max(heap_t *h)
                 h->heap_size = 0;
                 return h->heap;
         }
-        /* Swapping for the last element */
+        /* Swapping the last element */
         Order *temp = *((h->heap) + (h->heap_size) - 1);
         h->heap[h->heap_size-1] = *h->heap;
         *h->heap = temp;
@@ -109,22 +109,4 @@ void heapify(heap_t *h, int i)
                 heap[max] = temp;
                 heapify(h, max);
         }
-}
-
-/*
- * Compare function between two orders. If the order is old then 
- * it get the priority after the quantity priority is taken into 
- * account
- */
-int cmp(Order *x, Order *y)
-{
-        if(x->quantity > y->quantity)
-                return 1;
-        else if(x->quantity < y->quantity)
-                return -1;
-
-        if(x->timestamp > y->timestamp)
-                return -1;
-        else
-                return 1;
 }

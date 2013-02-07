@@ -7,7 +7,7 @@
 /* 
  * In the given file prices are limited to 0.01 to 100.00
  * Since prices are multiplied by 100 to have an integer Value, 
- * these seem to safer lower and upper bounds
+ * these seem to be safer lower and upper bounds
  */
 int higest_bid_price = -1;
 int lowest_offer_price = 20000;
@@ -32,7 +32,7 @@ int buy_shares(int offerprice, heap_t *h, int num_shares)
                 offer = *h->heap;
                 extract_max(h);
                 if(num_shares<offer->quantity){
-                        /* If the top element has more shares then decrease it's Value
+                        /* If the top element has more shares then decrease it's value
                          * and put it again in the heap */
                         offer->quantity = offer->quantity-num_shares;
                         insert(h, &offer);
@@ -61,7 +61,7 @@ int sell_shares(int bidprice, heap_t *h, int num_shares)
                 extract_max(h);
                 if(num_shares<(bid->quantity)){
                         bid->quantity = bid->quantity-num_shares;
-                        /* If the top element has more shares then decrease it's Value
+                        /* If the top element has more shares then decrease it's value
                          * and put it again in the heap */
                         insert(h, &bid);
                         update_trader_shares(bid->name, num_shares, true);
@@ -85,7 +85,7 @@ void process_bid(Order **order)
 {
         offer_node_t *lowest_offer = get_lowest_offer_price((*order)->price);
         if (lowest_offer == NULL) {
-                /* No higher bid for this offer so add it in the unprocessed buy heap */
+                /* No lower offer for this offer so add it in the unprocessed buy heap */
                 add_bid(order);
                 return;
         }

@@ -5,11 +5,11 @@
 #include"mesh-x.h"
 #include<unistd.h>
 
-/* The path to orders.csv will this if executed as ./mesh-x */
+/* The path to orders.csv will be this if executed as ./mesh-x */
 #define ORDER_FILE "../ext/orders.csv" 
 
 /* 
- * The path to orders.csv will this if executed as ./bin/mesh-x.
+ * The path to orders.csv will be this if executed as ./bin/mesh-x.
  * Don't want to write getcwd and check the working directory right now
  */
 #define ALTERNATE_ORDER_FILE "ext/orders.csv"
